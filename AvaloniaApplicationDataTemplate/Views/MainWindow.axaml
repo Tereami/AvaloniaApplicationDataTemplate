@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:model="using:AvaloniaApplicationDataTemplate.Models"
+        xmlns:view="using:AvaloniaApplicationDataTemplate.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaApplicationDataTemplate.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -11,8 +12,6 @@
         Title="School" Height="200" Width="300">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
@@ -25,9 +24,7 @@
                 <TextBlock 
                     FontWeight="Bold" 
                     Text="{Binding Grade, StringFormat='Student {0} grade'}" />
-                <ContentControl 
-                    Content="{Binding}" 
-                    ContentTemplate="{DynamicResource My.DataTemplate.Person}"/>
+                <view:PersonView />
             </StackPanel>
         </DataTemplate>
         <DataTemplate DataType="model:Teacher">
@@ -35,30 +32,9 @@
                 <TextBlock
                     FontWeight="Bold"
                     Text="{Binding Subject, StringFormat='My subject is {0}'}"/>
-                <ContentControl
-                    Content="{Binding}"
-                    ContentTemplate="{DynamicResource My.DataTemplate.Person}"/>
+                <view:PersonView />
             </StackPanel>
         </DataTemplate>
     </Window.DataTemplates>
     
-    
-    
-    <Window.Resources>
-        <DataTemplate x:Key="My.DataTemplate.Person" DataType="model:Person">
-            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto">
-                <TextBlock Grid.Row="0" Grid.Column="0" >First name:</TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
-                
-                <TextBlock Grid.Row="1" Grid.Column="0">Last name:</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"></TextBlock>
-                
-                <TextBlock Grid.Row="2" Grid.Column="0">Age:</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Age}"></TextBlock>
-                
-                <TextBlock Grid.Row="3" Grid.Column="0">Sex:</TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Sex}"></TextBlock>
-            </Grid>
-        </DataTemplate>
-    </Window.Resources>
 </Window>

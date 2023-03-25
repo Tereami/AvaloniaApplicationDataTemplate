@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:model="using:AvaloniaApplicationDataTemplate.Models"
+             xmlns:vm="using:AvaloniaApplicationDataTemplate.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:CompileBindings="True" 
+             x:DataType="model:Person"
+             x:Class="AvaloniaApplicationDataTemplate.Views.PersonView">
+    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto">
+        <TextBlock Grid.Row="0" Grid.Column="0" >First name:</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}"/>
+                
+        <TextBlock Grid.Row="1" Grid.Column="0">Last name:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding LastName}"></TextBlock>
+                
+        <TextBlock Grid.Row="2" Grid.Column="0">Age:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Age}"></TextBlock>
+                
+        <TextBlock Grid.Row="3" Grid.Column="0">Sex:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Sex}"></TextBlock>
+    </Grid>
+</UserControl>
